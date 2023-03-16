@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercícios_de_instruções_de_decisão
+namespace Exercicios_de_Instruções_de_Decisão
 {
     class Program
     {
         static void Main(string[] args)
         {
-
         }
     }
 }
