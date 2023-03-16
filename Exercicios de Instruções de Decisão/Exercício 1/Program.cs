@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercicios_de_Instruções_de_Decisão
+namespace Exercício_1
 {
     class Program
     {
