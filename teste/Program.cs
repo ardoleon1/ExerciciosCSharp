@@ -10,6 +10,9 @@ namespace teste
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("\t\t---Teste---");
+
+            Console.ReadLine();
         }
     }
 }
