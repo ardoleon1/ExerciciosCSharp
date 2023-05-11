@@ -12,7 +12,7 @@ namespace teste
         {
             Console.WriteLine("\t\t---Teste---");
 
-            /* 4 Conceitos essenciais: Variáveis, Condicionais, Laço de repetição e Coleções
+            /* 4 Conceitos essenciais: Variáveis, Condicionais, Laços de repetição e Coleções
              * 
              * 1.Quais são os dados necessários?
              * 2.O que fazer com esses dados?
