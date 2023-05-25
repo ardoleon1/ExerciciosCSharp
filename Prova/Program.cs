@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Uédina e Leonardo - 2ºB Informática
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,55 +8,99 @@ using System.Threading.Tasks;
 
 namespace Prova
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("\t\t---Prova---");
             int opcao; double raio, baseRetangulo, alturaRetangulo, baseTriangulo, alturaTriangulo, area;
-            int repetir = 0;
+            string repetir = "S";
             do
             {
                 Console.Clear();
                 Console.WriteLine("Seja bem-vindo ao programa de cálculo. O que você deseja?");
-                Console.WriteLine("Escolha uma opção abaixo:");
-                Console.WriteLine("[1] Calcular a área de um círculo");
-                Console.WriteLine("[2] Calcular a área de um retângulo");
-                Console.WriteLine("[3] Calcular a área de um triângulo");
-                Console.Write("Alternativa: ");
+                Console.WriteLine("\n[1] Para calcular área do Retângulo");
+                Console.WriteLine("[2] Para calcular área do Triângulo");
+                Console.WriteLine("[3] Para calcular área do Círculo");
+                Console.WriteLine("[4] Sair");
                 opcao = int.Parse(Console.ReadLine());
 
                 switch (opcao)
                 {
                     case 1:
-                        Console.Write("\nDigite o raio do círculo: ");
-                        raio = double.Parse(Console.ReadLine());
-                        area = Math.PI * raio * raio;
-                        Console.WriteLine("A área do círculo: " + area);
+                        Console.Clear();
+                        Console.Write("Digite o valor da base do Retângulo: ");
+                        baseRetangulo = double.Parse(Console.ReadLine());
+                        if (baseRetangulo <= 0)
+                        {
+                            Console.WriteLine("Digite um valor válido!");
+                            break;
+                        }
+                        Console.Write("Digite o valor da altura do Retângulo: ");
+                        alturaRetangulo = double.Parse(Console.ReadLine());
+                        if (alturaRetangulo <= 0)
+                        {
+                            Console.WriteLine("Digite um valor válido!");
+                            break;
+                        }
+                        area = baseRetangulo * alturaRetangulo;
+                        Console.WriteLine("A área do Retângulo é " + area);
                         break;
                     case 2:
-                        Console.Write("\nDigite a base do retângulo: ");
-                        baseRetangulo = double.Parse(Console.ReadLine());
-                        Console.Write("Digite a altura do retângulo: ");
-                        alturaRetangulo = double.Parse(Console.ReadLine());
-                        area = baseRetangulo * alturaRetangulo;
-                        Console.WriteLine("A área do retângulo: " + area);
+                        Console.Clear();
+                        Console.Write("Digite o valor da base do Triângulo: ");
+                        baseTriangulo = double.Parse(Console.ReadLine());
+                        if (baseTriangulo <= 0)
+                        {
+                            Console.WriteLine("Digite um valor válido!");
+                            break;
+                        }
+                        Console.Write("Digite o valor da altura do Triângulo: ");
+                        alturaTriangulo = double.Parse(Console.ReadLine());
+                        if (alturaTriangulo <= 0)
+                        {
+                            Console.WriteLine("Digite um valor válido!");
+                            break;
+                        }
+                        area = (baseTriangulo * alturaTriangulo) / 2;
+                        Console.WriteLine("A área do Triângulo é " + area);
                         break;
                     case 3:
-                        Console.Write("\nDigite a base do triângulo: ");
-                        baseTriangulo = double.Parse(Console.ReadLine());
-                        Console.Write("Digite a altura do triângulo: ");
-                        alturaTriangulo = double.Parse(Console.ReadLine());
-                        area = (baseTriangulo * alturaTriangulo) / 2;
-                        Console.WriteLine("A área do triângulo: " + area);
+                        Console.Clear();
+                        Console.Write("Digite o valor do raio: ");
+                        raio = double.Parse(Console.ReadLine());
+                        if (raio <= 0)
+                        {
+                            Console.WriteLine("Digite um valor válido!");
+                            break;
+                        }
+                        area = 3.1415 * raio * raio;
+                        Console.WriteLine("A área do Círculo é " + area);
+                        break;
+                    case 4:
+                        Console.Clear();
+                        repetir = "N";
+                        break;
+                    default:
+                        Console.WriteLine("Digite uma opção válida!");
                         break;
                 }
-                Console.Write("\nDeseja repetir novamente?\n[1] para sim\n[2] para não\n");
-                repetir = int.Parse(Console.ReadLine());
-            } while (repetir == 1);
+                if (repetir != "N")
+                {
+                    Console.Write("\nVocê deseja realizar uma nova operação?\nDigite [S] para continuar ou [N] para sair\n");
+                    repetir = Console.ReadLine();
+                    if (repetir != "S" && repetir != "N")
+                    {
+                        Console.WriteLine("Digite uma opção válida!");
+                        Console.Write("\nVocê deseja realizar uma nova operação?\nDigite [S] para continuar ou [N] para sair\n");
+                        repetir = Console.ReadLine();
+                    }
+                }
+            } while (repetir != "N");
+            Console.Clear();
             Console.WriteLine("\nTenha um bom dia!");
-            Console.ReadLine();
 
+            Console.ReadLine();
         }
     }
 }
