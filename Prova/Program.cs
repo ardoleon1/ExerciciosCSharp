@@ -87,12 +87,14 @@ namespace Prova
                 }
                 if (repetir != "N")
                 {
-                    Console.Write("\nVocê deseja realizar uma nova operação?\nDigite [S] para continuar ou [N] para sair\n");
+                    Console.Write("\nVocê deseja realizar uma nova operação?" +
+                        "\nDigite [S] para continuar ou [N] para sair\n");
                     repetir = Console.ReadLine();
                     if (repetir != "S" && repetir != "N")
                     {
                         Console.WriteLine("Digite uma opção válida!");
-                        Console.Write("\nVocê deseja realizar uma nova operação?\nDigite [S] para continuar ou [N] para sair\n");
+                        Console.Write("\nVocê deseja realizar uma nova operação?" +
+                            "\nDigite [S] para continuar ou [N] para sair\n");
                         repetir = Console.ReadLine();
                     }
                 }
