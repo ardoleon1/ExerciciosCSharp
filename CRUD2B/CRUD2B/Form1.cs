@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CRUD_de_Música.Model;
 using CRUD_de_Música.BLL;
+using MySql.Data.MySqlClient;
 
 namespace CRUD_de_Música
 {
@@ -18,7 +19,25 @@ namespace CRUD_de_Música
       {
             InitializeComponent();
       }
-        
+        //Método para Excluir
+        private void Excluir(Musica musica)
+        {
+            MusicaBLL musicaBLL = new MusicaBLL();
+            if (txtCodigo.Text == string.Empty)
+            {
+                MessageBox.Show("Selecione um cadastro para ser excluído!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (MessageBox.Show("Deseja excluir o cadastro selecionado?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                musica.Id = Convert.ToInt32(txtCodigo.Text);
+
+                musicaBLL.Excluir(musica);
+
+                MessageBox.Show("Excluído com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpar();
+            }
+        }
+
         //Método para Alterar
         private void Alterar(Musica musica)
         {
@@ -135,8 +154,14 @@ namespace CRUD_de_Música
         private void Listar()
         {
             MusicaBLL MusicaBLL = new MusicaBLL();
-            dataGridView1.DataSource = MusicaBLL.Listar();
-
+            try
+            {
+                dataGridView1.DataSource = MusicaBLL.Listar();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
             //Renomear os cabeçalhos das colunas
             dataGridView1.Columns[0].HeaderText = "Código";
             dataGridView1.Columns[1].HeaderText = "Título";
@@ -169,12 +194,12 @@ namespace CRUD_de_Música
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            Limpar();
             Listar();
+            Limpar();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //Eu não cliquei duas vezes na tela, eu juro.
         }
 
         //Método duplo clique na linha do DataGrid
@@ -201,6 +226,12 @@ namespace CRUD_de_Música
         {
             Musica musica = new Musica();
             Alterar(musica);
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Musica musica = new Musica();
+            Excluir(musica);
         }
     }
 }

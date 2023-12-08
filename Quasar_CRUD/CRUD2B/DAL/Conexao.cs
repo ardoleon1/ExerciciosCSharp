@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace CRUD_de_Música.DAL
+namespace Quasar_CRUD.DAL
 {
     public class Conexao
     {
-        string conecta = "SERVER=localhost; DATABASE=musicas; UID=root; PWD= ";
+        string conecta = "SERVER=localhost; DATABASE=quasars; UID=root; PWD= ";
 
         protected MySqlConnection conexao = null;
 

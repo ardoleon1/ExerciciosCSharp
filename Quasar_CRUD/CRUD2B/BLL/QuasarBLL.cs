@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CRUD_de_Música.Model;
-using CRUD_de_Música.DAL;
+using Quasar_CRUD.Model;
+using Quasar_CRUD.DAL;
 using System.Data;
 using System.Windows.Forms;
 
-namespace CRUD_de_Música.BLL
+namespace Quasar_CRUD.BLL
 {
-    public class MusicaBLL
+    public class QuasarBLL
     {
-        MusicaDAL musicaDAL = new MusicaDAL();
+        QuasarDAL quasarDAL = new QuasarDAL();
         
         //Método para Excluir
-        public void Excluir(Musica musica)
+        public void Excluir(Quasar quasar)
         {
             try
             {
-                musicaDAL.Excluir(musica);
+                quasarDAL.Excluir(quasar);
             }
             catch (Exception erro)
             {
@@ -28,11 +28,11 @@ namespace CRUD_de_Música.BLL
         }
 
         //Método para Alterar
-        public void Alterar(Musica musica)
+        public void Alterar(Quasar quasar)
         {
             try
             {
-                musicaDAL.Alterar(musica);
+                quasarDAL.Alterar(quasar);
             }
             catch (Exception erro)
             {
@@ -40,11 +40,11 @@ namespace CRUD_de_Música.BLL
             }
         }
         //Método prara Salvar
-        public void Salvar(Musica musica)
+        public void Salvar(Quasar quasar)
         {
             try
             {
-                musicaDAL.Salvar(musica);
+                quasarDAL.Salvar(quasar);
             }
             catch (Exception erro)
             {
@@ -58,7 +58,7 @@ namespace CRUD_de_Música.BLL
             try
             {
                 DataTable dt = new DataTable();
-                dt = musicaDAL.Listar();
+                dt = quasarDAL.Listar();
                 return dt;
             }
             catch (Exception erro)

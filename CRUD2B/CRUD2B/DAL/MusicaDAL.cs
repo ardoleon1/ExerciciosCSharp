@@ -14,6 +14,25 @@ namespace CRUD_de_Música.DAL
     {
         MySqlCommand comando = null;
 
+        //Método para Excluir
+        public void Excluir(Musica musica)
+        {
+            try
+            {
+                AbrirConexao();
+
+                comando = new MySqlCommand("DELETE FROM musica WHERE id = @id", conexao);
+
+                comando.Parameters.AddWithValue("@id", musica.Id);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+
+                throw erro;
+            }
+        }
+
         //Método para Alterar
         public void Alterar(Musica musica)
         {
@@ -91,11 +110,15 @@ namespace CRUD_de_Música.DAL
                 da.Fill(dt);
                 return dt;
             }
+            catch (MySqlException erro)
+            {
+                MessageBox.Show(erro.Message, "Erro ao conectar com o banco de dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro ao listar os dados!\n" + erro.Message, "Alerta!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                throw erro;
+                MessageBox.Show(erro.Message, "Erro ao listar os dados DAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             finally
             {

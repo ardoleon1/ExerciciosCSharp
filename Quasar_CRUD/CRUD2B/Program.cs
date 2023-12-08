@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CRUD_de_Música
+namespace Quasar_CRUD
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
